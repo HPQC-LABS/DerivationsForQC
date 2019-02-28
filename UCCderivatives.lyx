@@ -1,0 +1,265 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\begin_preamble
+\usepackage{amsfonts,amsmath} % amsmath added here instead to prevent clash with lyx function
+\newcommand{\intextheight}{13 pt}
+\let\fileinput\input % to allow conversion without turning tikz to lyx
+\usepackage[font=small,labelfont=bf,
+   justification=justified,
+   singlelinecheck=false,
+   format=plain]{caption}
+
+\usepackage{threeparttable}
+%\captionsetup[table]{
+%  labelsep=newline,
+%  justification=justified,
+%  singlelinecheck=false,
+%  textfont=it,
+%}
+\end_preamble
+\options showpacs,preprintnumbers,amssymb,aps,notitlepage
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Analytic derivatives for UCC
+\end_layout
+
+\begin_layout Author
+Nike Dattani
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\langle0|e^{T^{\dagger}-T}He^{T-T^{\dagger}}|0\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+|\psi\rangle & =e^{T-T^{\dagger}}|0\rangle\\
+E & =\langle\psi|H|\psi\rangle\\
+\frac{\partial E}{\partial t_{ij}^{ab}} & =\frac{\partial\langle\psi|}{\partial t_{ij}^{ab}}H|\psi\rangle+\langle\psi|\frac{\partial H}{\partial t_{ij}^{ab}}|\psi\rangle+\langle\psi|H\frac{\partial|\psi\rangle}{\partial t_{ij}^{ab}}\\
+\frac{\partial E}{\partial p} & \equiv\frac{\partial\langle\psi|}{\partial p}H|\psi\rangle+\langle\psi|\frac{\partial H}{\partial p}|\psi\rangle+\langle\psi|H\frac{\partial|\psi\rangle}{\partial p}\\
+ & =\frac{\partial\langle\psi|}{\partial p}H|\psi\rangle+\langle\psi|H\frac{\partial|\psi\rangle}{\partial p}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's focus on just one of these terms:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\frac{\partial|\psi\rangle}{\partial t_{ij}^{ab}} & =\frac{\partial}{\partial t_{ij}^{ab}}e^{T-T^{\dagger}}|0\rangle\\
+ & =\frac{\partial\left(T-T^{\dagger}\right)}{\partial t_{ij}^{ab}}e^{T-T^{\dagger}}|0\rangle\\
+\frac{\partial\left(T-T^{\dagger}\right)}{\partial t_{ij}^{ab}} & =\frac{\partial}{\partial t_{ij}^{ab}}\left(\frac{1}{4}\sum_{ijab}t_{ij}^{ab}a^{\dagger}b^{\dagger}ji\right)\\
+ & =\frac{1}{4}a^{\dagger}b^{\dagger}ji\\
+\frac{\partial|\psi\rangle}{\partial t_{ij}^{ab}} & =\frac{1}{4}a^{\dagger}b^{\dagger}jie^{T-T^{\dagger}}|0\rangle
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The quantum computer will give us 
+\begin_inset Formula $|\psi\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $E|\psi\rangle=H|\psi\rangle$
+\end_inset
+
+.
+ Substituting 
+\begin_inset Formula $E|\psi\rangle$
+\end_inset
+
+ into 
+\begin_inset Formula $\frac{\partial\langle\psi|}{\partial p}H|\psi\rangle$
+\end_inset
+
+ gives: 
+\begin_inset Formula $E\frac{\partial\langle\psi|}{\partial p}|\psi\rangle$
+\end_inset
+
+, so all we have to do is evaluate 
+\begin_inset Formula $\frac{\partial\langle\psi|}{\partial p}|\psi\rangle$
+\end_inset
+
+ (and 
+\begin_inset Formula $\langle\psi|$
+\end_inset
+
+
+\begin_inset Formula $\frac{\partial|\psi\rangle}{\partial p}$
+\end_inset
+
+ for the second term).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\langle\psi|\frac{\partial|\psi\rangle}{\partial t_{ij}^{ab}} & =\langle0|e^{T^{\dagger}-T}a^{\dagger}b^{\dagger}jie^{T-T^{\dagger}}|0\rangle\\
+ & =\frac{1}{4}\langle0|e^{T^{\dagger}-T}a^{\dagger}b^{\dagger}jie^{T-T^{\dagger}}|0\rangle
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since this does not envolve diagonalizing 
+\begin_inset Formula $H$
+\end_inset
+
+, a classical computer should surely have enough RAM to approximate 
+\begin_inset Formula $\frac{1}{4}\langle0|e^{T^{\dagger}-T}a^{\dagger}b^{\dagger}jie^{T-T^{\dagger}}|0\rangle$
+\end_inset
+
+, even including the first terms of the Taylor series should give a decent
+ approximation to the derivatives.
+ 
+\series bold
+This does not involve calculating the energy several times for various values
+ of 
+\begin_inset Formula $t_{ij}^{ab}$
+\end_inset
+
+ in order to get 
+\begin_inset Quotes eld
+\end_inset
+
+finite difference
+\begin_inset Quotes erd
+\end_inset
+
+ derivatives.
+ 
+\end_layout
+
+\begin_layout Standard
+Alternatively, we may think about calculating 
+\begin_inset Formula $\frac{\partial|\psi\rangle}{\partial t_{ij}^{ab}}$
+\end_inset
+
+ using linear respose theory (as we do for calculating 
+\begin_inset Formula $\frac{\partial|\psi\rangle}{\partial c_{ij}^{ab}}$
+\end_inset
+
+ for a CI coefficient 
+\begin_inset Formula $c_{ij}^{ab}$
+\end_inset
+
+).
+\end_layout
+
+\end_body
+\end_document
